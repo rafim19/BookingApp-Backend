@@ -10035,19 +10035,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Haikal\\.nuget\\packages\\": {}
+    "C:\\Users\\rafim\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Haikal\\Desktop\\ProjectAkhir\\New folder\\BookingApp-Backend\\BookingAppITDiv\\BookingAppITDiv.csproj",
+      "projectUniqueName": "D:\\AMJS_2022\\PROJECT AKHIR\\Jawaban\\BookingAppGithub\\BookingApp-Backend\\BookingAppITDiv\\BookingAppITDiv.csproj",
       "projectName": "BookingAppITDiv",
-      "projectPath": "C:\\Users\\Haikal\\Desktop\\ProjectAkhir\\New folder\\BookingApp-Backend\\BookingAppITDiv\\BookingAppITDiv.csproj",
-      "packagesPath": "C:\\Users\\Haikal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Haikal\\Desktop\\ProjectAkhir\\New folder\\BookingApp-Backend\\BookingAppITDiv\\obj\\",
+      "projectPath": "D:\\AMJS_2022\\PROJECT AKHIR\\Jawaban\\BookingAppGithub\\BookingApp-Backend\\BookingAppITDiv\\BookingAppITDiv.csproj",
+      "packagesPath": "C:\\Users\\rafim\\.nuget\\packages\\",
+      "outputPath": "D:\\AMJS_2022\\PROJECT AKHIR\\Jawaban\\BookingAppGithub\\BookingApp-Backend\\BookingAppITDiv\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Haikal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\rafim\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10101,7 +10101,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

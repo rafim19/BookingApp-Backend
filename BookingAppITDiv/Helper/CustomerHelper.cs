@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using BookingAppITDiv.Output;
+using BookingAppITDiv.Models.Request;
 
 namespace BookingAppITDiv.Helper
 {
@@ -14,18 +16,20 @@ namespace BookingAppITDiv.Helper
         {
             try
             {
-                EntityHelper.Add<MsCustomer>(new MsCustomer()
+                EntityHelper.Add(new MsCustomer()
                 {
-                    DateIn = DateTime.Now,
-                    UserIn = "Admin",
-                    //DateOfBirth = data.DateOfBirth,
                     FirstName = data.FirstName,
                     LastName = data.LastName,
+                    Gender = data.Gender,
                     Email = data.Email,
                     Password = data.Password,
-                    Gender = data.Gender,
                     Phone = data.Phone,
-                    Stsrc = 'A', //default value
+                    //DateOfBirth = null,
+                    Stsrc = 'A',
+                    UserIn = "Admin",
+                    //UserUp = "Admin",
+                    DateIn = DateTime.Now,
+                    //DateUp = DateTime.Now
                 });
             }
             catch (Exception ex)
@@ -33,6 +37,32 @@ namespace BookingAppITDiv.Helper
                 throw new Exception(ex.Message);
             }
             return 1;
+        }
+
+        public static List<CustomerData> GetAllCustomer()
+        {
+            var retVal = new List<CustomerData>();
+            var MsCustomer = EntityHelper.Get<MsCustomer>().ToList();
+
+            try
+            {
+                retVal = MsCustomer.Select(customer => new CustomerData()
+                {
+                    CustomerID = customer.CustomerID,
+                    FirstName = customer.FirstName,
+                    LastName= customer.LastName,
+                    Gender = customer.Gender,
+                    Email = customer.Email,
+                    Phone = customer.Phone,
+                    DateOfBirth = (DateTime)customer.DateOfBirth
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return retVal;
         }
     }
 }

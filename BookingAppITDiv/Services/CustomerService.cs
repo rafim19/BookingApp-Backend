@@ -1,6 +1,7 @@
 ﻿using Binus.WS.Pattern.Output;
 using Binus.WS.Pattern.Service;
 using BookingAppITDiv.Model;
+using BookingAppITDiv.Models.Request;
 using BookingAppITDiv.Output;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,23 @@ namespace BookingAppITDiv.Services
             {
                 var objJSON = new AddCustomerOutput();
                 objJSON.Success = Helper.CustomerHelper.AddNewCustomer(data);
+                return new OkObjectResult(objJSON);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new OutputBase(ex));
+            }
+        }
+
+        [HttpGet]
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(CustomersOutput), StatusCodes.Status200OK)]
+        public IActionResult GetAllCustomer()
+        {
+            try
+            {
+                var objJSON = new CustomersOutput();
+                objJSON.Customers = Helper.CustomerHelper.GetAllCustomer();
                 return new OkObjectResult(objJSON);
             }
             catch (Exception ex)
