@@ -1,0 +1,7 @@
+D:\AMJS_2022\PROJECT AKHIR\Jawaban\BookingAppITDiv\BookingAppITDiv\obj\Release\netcoreapp3.1\BookingAppITDiv.csproj.AssemblyReference.cache
+D:\AMJS_2022\PROJECT AKHIR\Jawaban\BookingAppITDiv\BookingAppITDiv\obj\Release\netcoreapp3.1\BookingAppITDiv.GeneratedMSBuildEditorConfig.editorconfig
+D:\AMJS_2022\PROJECT AKHIR\Jawaban\BookingAppITDiv\BookingAppITDiv\obj\Release\netcoreapp3.1\BookingAppITDiv.AssemblyInfoInputs.cache
+D:\AMJS_2022\PROJECT AKHIR\Jawaban\BookingAppITDiv\BookingAppITDiv\obj\Release\netcoreapp3.1\BookingAppITDiv.AssemblyInfo.cs
+D:\AMJS_2022\PROJECT AKHIR\Jawaban\BookingAppITDiv\BookingAppITDiv\obj\Release\netcoreapp3.1\BookingAppITDiv.csproj.CoreCompileInputs.cache
+D:\AMJS_2022\PROJECT AKHIR\Jawaban\BookingAppITDiv\BookingAppITDiv\obj\Release\netcoreapp3.1\BookingAppITDiv.MvcApplicationPartsAssemblyInfo.cs
+D:\AMJS_2022\PROJECT AKHIR\Jawaban\BookingAppITDiv\BookingAppITDiv\obj\Release\netcoreapp3.1\BookingAppITDiv.MvcApplicationPartsAssemblyInfo.cache
