@@ -9,5 +9,14 @@
     <PackageReference Include="Binus.WS.Pattern.Entities" Version="1.5.4" />
   </ItemGroup>
 
+<<<<<<< HEAD
+=======
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+    <Folder Include="Outputs\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+>>>>>>> 95480710de0c9467f276fda8f608946d31439bd6
 
 </Project>
