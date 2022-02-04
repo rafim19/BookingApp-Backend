@@ -10,7 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Helper\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Outputs\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
 
