@@ -5,18 +5,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Helpers\**" />
+    <Compile Remove="Outputs\**" />
+    <Content Remove="Helpers\**" />
+    <Content Remove="Outputs\**" />
+    <EmbeddedResource Remove="Helpers\**" />
+    <EmbeddedResource Remove="Outputs\**" />
+    <None Remove="Helpers\**" />
+    <None Remove="Outputs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Binus.WS.Pattern" Version="2.1.6" />
     <PackageReference Include="Binus.WS.Pattern.Entities" Version="1.5.4" />
   </ItemGroup>
 
-<<<<<<< HEAD
-=======
   <ItemGroup>
-    <Folder Include="Helpers\" />
-    <Folder Include="Outputs\" />
     <Folder Include="Services\" />
   </ItemGroup>
-
->>>>>>> 95480710de0c9467f276fda8f608946d31439bd6
 
 </Project>

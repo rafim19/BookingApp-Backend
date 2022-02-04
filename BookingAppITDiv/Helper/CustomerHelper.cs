@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using BookingAppITDiv.Output;
-using BookingAppITDiv.Models.Request;
 
 namespace BookingAppITDiv.Helper
 {
@@ -24,12 +23,9 @@ namespace BookingAppITDiv.Helper
                     Email = data.Email,
                     Password = data.Password,
                     Phone = data.Phone,
-                    //DateOfBirth = null,
                     Stsrc = 'A',
                     UserIn = "Admin",
-                    //UserUp = "Admin",
                     DateIn = DateTime.Now,
-                    //DateUp = DateTime.Now
                 });
             }
             catch (Exception ex)
@@ -54,7 +50,7 @@ namespace BookingAppITDiv.Helper
                     Gender = customer.Gender,
                     Email = customer.Email,
                     Phone = customer.Phone,
-                    DateOfBirth = (DateTime)customer.DateOfBirth
+                    DateOfBirth = customer.DateOfBirth
                 }).ToList();
             }
             catch (Exception ex)

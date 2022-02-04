@@ -47,6 +47,6 @@ namespace BookingAppITDiv.Output
         public string Email { get; set; }
         public string Phone { get; set; }
         [DataType(DataType.Date)]
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
     }
 }
