@@ -40,7 +40,7 @@ namespace BookingAppITDiv.Output
 
     public class CustomerData
     {
-        public string CustomerID { get; set; }
+        public Guid CustomerID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Gender { get; set; }

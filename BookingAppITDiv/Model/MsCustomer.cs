@@ -11,7 +11,7 @@ namespace BookingAppITDiv.Model
     {
         [Key]
         [Column("CustomerID")]
-        public string CustomerID { get; set; }
+        public Guid CustomerID { get; set; }
         [Column("FirstName")]
         public string FirstName { get; set; }
         [Column("LastName")]
