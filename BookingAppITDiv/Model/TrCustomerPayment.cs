@@ -22,9 +22,8 @@ namespace BookingAppITDiv.Model
         public string PaymentMethod { get; set; }
         [Column("PaymentAmount")]
         public string PaymentAmount { get; set; }
-        [DataType(DataType.Date)]
         [Column("PaymentDate")]
-        public DateTime PaymentDate { get; set; }
+        public string PaymentDate { get; set; }
         [Column("RoomBook")]
         public char Stsrc { get; set; }
         [Column("UserIn")]

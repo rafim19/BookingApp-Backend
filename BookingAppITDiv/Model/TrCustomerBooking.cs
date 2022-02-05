@@ -18,9 +18,8 @@ namespace BookingAppITDiv.Model
         [ForeignKey("RoomID")]
         [Column("RoomID")]
         public string RoomID { get; set; }
-        [DataType(DataType.Date)]
         [Column("BookingDate")]
-        public DateTime BookingDate { get; set; }
+        public string BookingDate { get; set; }
         [Column("TotalPrice")]
         public int TotalPrice { get; set; }
         [Column("BookingStatus")]

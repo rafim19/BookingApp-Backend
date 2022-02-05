@@ -1,25 +1,27 @@
 CREATE DATABASE ProjectAkhirITDiv
 USE ProjectAkhirITDiv
+-- DROP DATABASE ProjectAkhirITDiv
 
 BEGIN TRAN
 CREATE TABLE msCustomer (
-	CustomerID VARCHAR(6) PRIMARY KEY CHECK (CustomerID LIKE 'CID[0-9][0-9][0-9]') NOT NULL,
+	CustomerID INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
 	FirstName VARCHAR(50) NOT NULL,
 	LastName VARCHAR(50) NOT NULL,
 	Gender CHAR(6) CHECK(Gender IN('MALE','FEMALE'))NOT NULL,
 	Email VARCHAR(50) UNIQUE NOT NULL,
 	[Password] VARCHAR(50) NOT NULL,
 	Phone VARCHAR(50) UNIQUE NOT NULL,
-	DateOfBirth DATE NOT NULL,
+	DateOfBirth DATE,
 	Stsrc CHAR(1) NOT NULL,
 	UserIn VARCHAR(50) NOT NULL,
-	UserUp VARCHAR(50) NOT NULL,
+	UserUp VARCHAR(50) NULL,
 	DateIn DATETIME NOT NULL,
-	DateUp DATETIME NOT NULL
+	DateUp DATETIME NULL
 )
+-- DROP TABLE msCustomer
 
 CREATE TABLE msHotel (
-	HotelID VARCHAR (6) PRIMARY KEY CHECK (HotelID LIKE 'HTL[0-9][0-9][0-9]') NOT NULL,
+	HotelID INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
 	HotelName VARCHAR (50) NOT NULL,
 	HotelDescription VARCHAR (50) NOT NULL,
 	PhoneNumber VARCHAR (50) UNIQUE NOT NULL,
@@ -29,14 +31,15 @@ CREATE TABLE msHotel (
 	[Image] VARCHAR (50) NOT NULL,
 	Stsrc CHAR(1) NOT NULL,
 	UserIn VARCHAR(50) NOT NULL,
-	UserUp VARCHAR(50) NOT NULL,
+	UserUp VARCHAR(50) NULL,
 	DateIn DATETIME NOT NULL,
-	DateUp DATETIME NOT NULL
+	DateUp DATETIME NULL
 )
+-- DROP TABLE msHotel
 
 CREATE TABLE msRoom (
-	RoomID VARCHAR(6) PRIMARY KEY CHECK (RoomID LIKE 'RM[0-9][0-9][0-9][0-9]') NOT NULL,
-	HotelID VARCHAR(6) FOREIGN KEY REFERENCES msHotel ON UPDATE CASCADE ON DELETE CASCADE NOT NULL,
+	RoomID INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+	HotelID INT FOREIGN KEY REFERENCES msHotel(HotelID) ON UPDATE CASCADE ON DELETE CASCADE NOT NULL,
 	RoomDescription VARCHAR(50) NOT NULL,
 	Price INT NOT NULL,
 	RoomAvailable VARCHAR(15) NOT NULL,
@@ -45,15 +48,16 @@ CREATE TABLE msRoom (
 	[Image] VARCHAR(50) NOT NULL,
 	Stsrc CHAR(1) NOT NULL,
 	UserIn VARCHAR(50) NOT NULL,
-	UserUp VARCHAR(50) NOT NULL,
+	UserUp VARCHAR(50) NULL,
 	DateIn DATETIME NOT NULL,
-	DateUp DATETIME NOT NULL
+	DateUp DATETIME NULL
 )
+-- DROP TABLE msRoom
 
 CREATE TABLE trCustomerBooking (
-	BookingID VARCHAR(6) PRIMARY KEY CHECK (BookingID LIKE 'BOOK[0-9][0-9]') NOT NULL,
-	CustomerID VARCHAR(6) REFERENCES msCustomer(CustomerID) ON UPDATE CASCADE ON DELETE CASCADE NOT NULL,
-	RoomID VARCHAR(6) REFERENCES msRoom(RoomID) ON UPDATE CASCADE ON DELETE CASCADE NOT NULL,
+	BookingID INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+	CustomerID INT REFERENCES msCustomer(CustomerID) ON UPDATE CASCADE ON DELETE CASCADE NOT NULL,
+	RoomID INT REFERENCES msRoom(RoomID) ON UPDATE CASCADE ON DELETE CASCADE NOT NULL,
 	BookingDate DATE NOT NULL,
 	TotalPrice INT NOT NULL,
 	BookingStatus VARCHAR(50) NOT NULL,
@@ -62,47 +66,115 @@ CREATE TABLE trCustomerBooking (
 	TotalNights VARCHAR (10) NOT NULL,
 	Stsrc CHAR(1) NOT NULL,
 	UserIn VARCHAR(50) NOT NULL,
-	UserUp VARCHAR(50) NOT NULL,
+	UserUp VARCHAR(50) NULL,
 	DateIn DATETIME NOT NULL,
-	DateUp DATETIME NOT NULL
+	DateUp DATETIME NULL
 )
+-- DROP TABLE trCustomerBooking
 
 CREATE TABLE trCustomerPayment (
-	PaymentID VARCHAR (6) PRIMARY KEY CHECK (PaymentID LIKE 'PID[0-9][0-9][0-9]') NOT NULL,
-	BookingID VARCHAR (6) REFERENCES trCustomerBooking(BookingID) ON UPDATE CASCADE ON DELETE CASCADE,
-	CustomerID VARCHAR (6) REFERENCES msCustomer(CustomerID),
+	PaymentID INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+	BookingID INT REFERENCES trCustomerBooking(BookingID) ON UPDATE CASCADE ON DELETE CASCADE,
+	CustomerID INT REFERENCES msCustomer(CustomerID) ON UPDATE CASCADE ON DELETE CASCADE,
 	PaymentMethod VARCHAR(50) NOT NULL,
 	PaymentAmount INT NOT NULL,
 	PaymentDate DATE NOT NULL,
 	Stsrc CHAR(1) NOT NULL,
 	UserIn VARCHAR(50) NOT NULL,
-	UserUp VARCHAR(50) NOT NULL,
+	UserUp VARCHAR(50) NULL,
 	DateIn DATETIME NOT NULL,
-	DateUp DATETIME NOT NULL
+	DateUp DATETIME NULL
 )
+-- DROP TABLE trCustomerPayment
 
 --INSERT DATA
 
-INSERT INTO msCustomer VALUES
-('CID001', 'Jessica', 'Jane', 'FEMALE', 'jessicajane@gmail.com', 'jj123', '08788901929', '1999-02-19', 'A', ORIGINAL_LOGIN(), ORIGINAL_LOGIN(), GETDATE(), GETDATE());
+INSERT INTO msCustomer (
+	FirstName, 
+	LastName, 
+	Gender, 
+	Email, 
+	[Password], 
+	Phone, 
+	DateOfBirth, 
+	Stsrc, UserIn, 
+	DateIn) 
+VALUES
+(
+	'Jessica', 'Jane', 'FEMALE', 'jessicajane@gmail.com', 
+	'jj123', '08788901929', '1999-02-19', 'A', ORIGINAL_LOGIN(), GETDATE()
+);
 
-INSERT INTO msHotel VALUES
-('HTL001', 'Royal Safari Garden', 'Description', '02518253000', 'reservation@royalsafari.com', 'Cisarua', '90', 'LinkImage', 'A', ORIGINAL_LOGIN(), ORIGINAL_LOGIN(), GETDATE(), GETDATE())
+INSERT INTO msHotel (
+	HotelName,
+	HotelDescription,
+	PhoneNumber,
+	Email,
+	[Address],
+	Rating,
+	[Image],
+	Stsrc,
+	UserIn,
+	DateIn
+)
+VALUES
+(
+	'Royal Safari Garden', 'Description', '02518253000', 'reservation@royalsafari.com', 
+	'Cisarua', '90', 'LinkImage', 'A', ORIGINAL_LOGIN(), GETDATE()
+);
 
-INSERT INTO msRoom VALUES
-('RM1001', 'HTL001', '', '1000000', '10', 'Deluxe', '5', 'LinkImage', 'A', ORIGINAL_LOGIN(), ORIGINAL_LOGIN(), GETDATE(), GETDATE());
+INSERT INTO msRoom (
+	HotelID,
+	RoomDescription,
+	Price,
+	RoomAvailable,
+	RoomType,
+	RoomBook,
+	[Image],
+	Stsrc,
+	UserIn,
+	DateIn
+)
+VALUES
+(
+	'1', '', '1000000', '10', 'Deluxe', '5', 'LinkImage', 'A', ORIGINAL_LOGIN(), GETDATE()
+);
 
-INSERT INTO trCustomerBooking VALUES
-('BOOK01', 'CID001', 'RM1001', '2021-04-20', '2000000', 'BOOKED', '2021-04-22 13:17:17', '2021-04-24 13:00:05', '2', 'A', ORIGINAL_LOGIN(), ORIGINAL_LOGIN(), GETDATE(), GETDATE())
+INSERT INTO trCustomerBooking (
+	CustomerID,
+	RoomID,
+	BookingDate,
+	TotalPrice,
+	BookingStatus,
+	CheckInDate,
+	CheckOutDate,
+	TotalNights,
+	Stsrc,
+	UserIn,
+	DateIn
+)
+VALUES
+(
+	'1', '1', '2021-04-20', '2000000', 'BOOKED', '2021-04-22 13:17:17', 
+	'2021-04-24 13:00:05', '2', 'A', ORIGINAL_LOGIN(), GETDATE()
+);
 
-INSERT INTO trCustomerPayment VALUES
-('PID111', 'BOOK01', 'CID001', 'BCA Transfer', '2000000', '2021-04-20', 'A', ORIGINAL_LOGIN(), ORIGINAL_LOGIN(), GETDATE(), GETDATE());
+INSERT INTO trCustomerPayment (
+	BookingID,
+	CustomerID,
+	PaymentMethod,
+	PaymentAmount,
+	PaymentDate,
+	Stsrc,
+	UserIn,
+	DateIn
+)
+VALUES
+(
+	'1', '1', 'BCA Transfer', '2000000', '2021-04-20', 'A', ORIGINAL_LOGIN(), GETDATE()
+);
 
 ROLLBACK
---DROP TABLE Customer
---DROP TABLE Room
---DROP TABLE Booking
---DROP DATABASE ProjectAkhirITDiv
 SELECT * FROM msCustomer
 SELECT * FROM trCustomerBooking
 SELECT * FROM msRoom

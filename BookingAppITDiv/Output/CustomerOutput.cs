@@ -28,11 +28,11 @@ namespace BookingAppITDiv.Output
     }
 
     // Add Customer to be an User
-    public class AddCustomerOutput : OutputBase
+    public class AddEditDeleteCustomerOutput : OutputBase
     {
         public int Success { get; set; }
         
-        public AddCustomerOutput()
+        public AddEditDeleteCustomerOutput()
         {
             this.Success = 0;
         }
@@ -46,7 +46,7 @@ namespace BookingAppITDiv.Output
         public string Gender { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime? DateOfBirth { get; set; }
+        #nullable enable
+        public string? DateOfBirth { get; set; }
     }
 }

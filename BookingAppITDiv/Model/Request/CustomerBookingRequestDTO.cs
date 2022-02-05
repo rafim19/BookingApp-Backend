@@ -10,7 +10,7 @@ namespace BookingAppITDiv.Model.Request
         public string BookingID { get; set; }
         public string CustomerID { get; set; }
         public string RoomID { get; set; }
-        public DateTime BookingDate { get; set; }
+        public string BookingDate { get; set; }
         public int TotalPrice { get; set; }
         public string BookingStatus { get; set; }
         public DateTime CheckInDate { get; set; }

@@ -12,7 +12,7 @@ namespace BookingAppITDiv.Model.Request
         public string CustomerID { get; set; }
         public string PaymentMethod { get; set; }
         public string PaymentAmount { get; set; }
-        public DateTime PaymentDate { get; set; }
+        public string PaymentDate { get; set; }
         public char Stsrc { get; set; }
         public string UserIn { get; set; }
         public string UserUp { get; set; }
